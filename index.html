@@ -16,7 +16,7 @@
       <div class="container">
          <div class="cart">
             <div class="col-md-12 col-lg-10 mx-auto">
-               <div class="cart-item">
+               <div id="cartRemoved" class="cart-item">
                   <div class="row">
                      <div class="col-md-7 center-item">
                         <img src="images/product-1.png" alt="">
@@ -25,12 +25,12 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="minusValue" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="inputValue" type="text" class="form-control text-center" value="1">
+                           <button id="plusValue" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
-                        <h5>$1219</h5>
-                        <img src="images/remove.png" alt="" class="remove-item">
+                        <h5>$ <span id="currentBalance">1219</span></h5>
+                        <img id="removeIcon" src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
                </div>
@@ -77,6 +77,74 @@
          </div>
       </div>
    </section>
+
+  <script>
+  //plush sign event handler
+  function firstPlusItem (plusValue, inputValue){
+     const plusSign = document.getElementById("plusValue");
+     plusSign.addEventListener("click", function(){
+        const currentValue = document.getElementById("inputValue").value;
+        const newValue = parseInt(currentValue) + 1;
+        document.getElementById("inputValue").value = newValue;
+
+     })
+  }
+  firstPlusItem (plusValue, inputValue);
+
+   //minus sign event handler
+
+   function firstMinusItem (minusValue, inputValue){
+      const minusSign = document.getElementById("minusValue");
+      minusSign.addEventListener("click", function(){
+      const negativeValue = document.getElementById("inputValue").value;
+      const newValue = parseInt(negativeValue) - 1;
+      document.getElementById("inputValue").value = newValue;
+      if(newValue == -1){
+      document.getElementById("inputValue").value = 0;
+      }
+      })
+   }
+   firstMinusItem (minusValue, inputValue);
+
+   //currentBalance positive value calculation
+
+   function productCost(plusValue, currentBalance){
+      const plusSign = document.getElementById("plusValue");
+      plusSign.addEventListener("click", function(){
+         const currentCost = document.getElementById("currentBalance").innerText;
+         const newCost =  parseInt(currentCost) + 1219;
+         document.getElementById("currentBalance").innerText = newCost;
+      })
+   }
+   productCost(plusValue, currentBalance);
+
+      //currentBalance negative value calculation
+
+   function negativeCost(minusValue, currentBalance){
+      const minusSign = document.getElementById("minusValue");
+      minusSign.addEventListener("click", function(){
+      const currentCost = document.getElementById("currentBalance").innerText;
+      const newCost = parseInt(currentCost) - 1219;
+      document.getElementById("currentBalance").innerText = newCost;
+      if(newCost == -1219){
+      document.getElementById("currentBalance").innerText = 0;
+
+      }
+      })
+   }
+   negativeCost(minusValue, currentBalance);
+
+   //remove display icon
+
+   const displayRemove = document.getElementById("removeIcon");
+   displayRemove.addEventListener("click", function(){
+    const cart = document.getElementById("cartRemoved");
+    cart.style.display = "none";
+   })
+
+ 
+  </script>
+   
 </body>
 
 </html>
