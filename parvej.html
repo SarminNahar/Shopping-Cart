@@ -64,9 +64,9 @@
                      </div>
 
                      <div class="col-md-4 status">
-                        <h5>$ <span id="subtotal">1,278</span></h5>
+                        <h5>$ <span id="subtotal"> 1,278</span></h5>
                         <h5>$ <span id="tax"> 0</span></h5>
-                        <h5>$ <span id="total">1,278</span></h5>
+                        <h5>$ <span id="total"> 1,278</span></h5>
                      </div>
                   </div>
                </div>
@@ -90,7 +90,6 @@
          total.innerText = currentBalance + currentBalance2;
       }
 
-
       //plush sign event handler first
       function firstPlusItem(plusValue, inputValue) {
          const plusSign = document.getElementById("plusValue");
@@ -98,8 +97,8 @@
             const currentValue = document.getElementById("inputValue").value;
             const newValue = parseInt(currentValue) + 1;
             document.getElementById("inputValue").value = newValue;
-            updateTotal()
 
+            updateTotal()
          })
       }
       firstPlusItem(plusValue, inputValue);
@@ -111,8 +110,8 @@
             const currentValue2 = document.getElementById("inputValue2").value;
             const newValue = parseInt(currentValue2) + 1;
             document.getElementById("inputValue2").value = newValue;
-            updateTotal()
 
+            updateTotal()
          })
       }
       secondPlusItem(plusValue2, inputValue2);
@@ -129,8 +128,8 @@
             document.getElementById("inputValue").value = newValue;
             if (newValue == -1) {
                document.getElementById("inputValue").value = 0;
-              
             }
+
             updateTotal()
          })
       }
@@ -146,8 +145,8 @@
             document.getElementById("inputValue2").value = newValue;
             if (newValue == -1) {
                document.getElementById("inputValue2").value = 0;
-               
             }
+
             updateTotal()
          })
       }
@@ -162,6 +161,7 @@
             const currentCost = document.getElementById("currentBalance").innerText;
             const newCost = parseInt(currentCost) + 1219;
             document.getElementById("currentBalance").innerText = newCost;
+
             updateTotal()
          })
       }
@@ -176,6 +176,7 @@
             const currentCost = document.getElementById("currentBalance2").innerText;
             const newCost = parseInt(currentCost) + 59;
             document.getElementById("currentBalance2").innerText = newCost;
+
             updateTotal()
          })
       }
@@ -193,6 +194,7 @@
                document.getElementById("currentBalance").innerText = 0;
 
             }
+
             updateTotal()
          })
       }
@@ -210,17 +212,21 @@
                document.getElementById("currentBalance2").innerText = 0;
 
             }
+
             updateTotal()
          })
       }
       negativeCost2(minusValue2, currentBalance2);
+
 
       //remove display icon1
       const displayRemove = document.getElementById("removeIcon");
       displayRemove.addEventListener("click", function () {
          const cart = document.getElementById("cartRemoved");
          cart.style.display = "none";
-         updateTotal()
+
+         document.getElementById('currentBalance').innerText = 0;
+         updateTotal();
       })
 
       //remove display icon2
@@ -228,10 +234,12 @@
       display2Remove.addEventListener("click", function () {
          const cart = document.getElementById("secondCartRemoved");
          cart.style.display = "none";
-         updateTotal()
+
+         document.getElementById('currentBalance2').innerText = 0;
+         updateTotal();
       })
 
-   
+    
 
 
    </script>
