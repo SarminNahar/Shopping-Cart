@@ -78,73 +78,73 @@
       </div>
    </section>
 
-  <script>
-  //plush sign event handler
-  function firstPlusItem (plusValue, inputValue){
-     const plusSign = document.getElementById("plusValue");
-     plusSign.addEventListener("click", function(){
-        const currentValue = document.getElementById("inputValue").value;
-        const newValue = parseInt(currentValue) + 1;
-        document.getElementById("inputValue").value = newValue;
+   <script>
+      //plush sign event handler
+      function firstPlusItem(plusValue, inputValue) {
+         const plusSign = document.getElementById("plusValue");
+         plusSign.addEventListener("click", function () {
+            const currentValue = document.getElementById("inputValue").value;
+            const newValue = parseInt(currentValue) + 1;
+            document.getElementById("inputValue").value = newValue;
 
-     })
-  }
-  firstPlusItem (plusValue, inputValue);
-
-   //minus sign event handler
-
-   function firstMinusItem (minusValue, inputValue){
-      const minusSign = document.getElementById("minusValue");
-      minusSign.addEventListener("click", function(){
-      const negativeValue = document.getElementById("inputValue").value;
-      const newValue = parseInt(negativeValue) - 1;
-      document.getElementById("inputValue").value = newValue;
-      if(newValue == -1){
-      document.getElementById("inputValue").value = 0;
+         })
       }
-      })
-   }
-   firstMinusItem (minusValue, inputValue);
+      firstPlusItem(plusValue, inputValue);
 
-   //currentBalance positive value calculation
+      //minus sign event handler
 
-   function productCost(plusValue, currentBalance){
-      const plusSign = document.getElementById("plusValue");
-      plusSign.addEventListener("click", function(){
-         const currentCost = document.getElementById("currentBalance").innerText;
-         const newCost =  parseInt(currentCost) + 1219;
-         document.getElementById("currentBalance").innerText = newCost;
-      })
-   }
-   productCost(plusValue, currentBalance);
+      function firstMinusItem(minusValue, inputValue) {
+         const minusSign = document.getElementById("minusValue");
+         minusSign.addEventListener("click", function () {
+            const negativeValue = document.getElementById("inputValue").value;
+            const newValue = parseInt(negativeValue) - 1;
+            document.getElementById("inputValue").value = newValue;
+            if (newValue == -1) {
+               document.getElementById("inputValue").value = 0;
+            }
+         })
+      }
+      firstMinusItem(minusValue, inputValue);
+
+      //currentBalance positive value calculation
+
+      function productCost(plusValue, currentBalance) {
+         const plusSign = document.getElementById("plusValue");
+         plusSign.addEventListener("click", function () {
+            const currentCost = document.getElementById("currentBalance").innerText;
+            const newCost = parseInt(currentCost) + 1219;
+            document.getElementById("currentBalance").innerText = newCost;
+         })
+      }
+      productCost(plusValue, currentBalance);
 
       //currentBalance negative value calculation
 
-   function negativeCost(minusValue, currentBalance){
-      const minusSign = document.getElementById("minusValue");
-      minusSign.addEventListener("click", function(){
-      const currentCost = document.getElementById("currentBalance").innerText;
-      const newCost = parseInt(currentCost) - 1219;
-      document.getElementById("currentBalance").innerText = newCost;
-      if(newCost == -1219){
-      document.getElementById("currentBalance").innerText = 0;
+      function negativeCost(minusValue, currentBalance) {
+         const minusSign = document.getElementById("minusValue");
+         minusSign.addEventListener("click", function () {
+            const currentCost = document.getElementById("currentBalance").innerText;
+            const newCost = parseInt(currentCost) - 1219;
+            document.getElementById("currentBalance").innerText = newCost;
+            if (newCost == -1219) {
+               document.getElementById("currentBalance").innerText = 0;
 
+            }
+         })
       }
+      negativeCost(minusValue, currentBalance);
+
+      //remove display icon
+
+      const displayRemove = document.getElementById("removeIcon");
+      displayRemove.addEventListener("click", function () {
+         const cart = document.getElementById("cartRemoved");
+         cart.style.display = "none";
       })
-   }
-   negativeCost(minusValue, currentBalance);
 
-   //remove display icon
 
-   const displayRemove = document.getElementById("removeIcon");
-   displayRemove.addEventListener("click", function(){
-    const cart = document.getElementById("cartRemoved");
-    cart.style.display = "none";
-   })
+   </script>
 
- 
-  </script>
-   
 </body>
 
 </html>

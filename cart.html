@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Practice Shopping Cart</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+        <link href="style.css" rel="stylesheet">
+     </head>
+     
+     <body>
+     
+        <section>
+           <div class="container">
+              <div class="cart">
+                 <div class="col-md-12 col-lg-10 mx-auto">
+                    <div id="cartRemoved" class="cart-item">
+                       <div class="row">
+                          <div class="col-md-7 center-item">
+                             <img src="images/product-1.png" alt="">
+                             <h5>iPhone 11 128GB Black</h5>
+                          </div>
+     
+                          <div class="col-md-5 center-item">
+                             <div class="input-group number-spinner">
+                                <button id="minusValue" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                                <input id="inputValue" type="text" class="form-control text-center" value="1">
+                                <button id="plusValue" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                             </div>
+                             <h5>$ <span id="currentBalance">1219</span></h5>
+                             <img id="removeIcon" src="images/remove.png" alt="" class="remove-item">
+                          </div>
+                       </div>
+                    </div>
+     
+                    <div id="secondCartRemoved" class="cart-item">
+                       <div class="row">
+                          <div class="col-md-7 center-item mx-auto">
+                             <img src="images/product-2.png" alt="">
+                             <h5>iPhone 11 Silicone Case - Black</h5>
+                          </div>
+                          <div class="col-md-5 center-item">
+                             <div class="input-group number-spinner">
+                                <button id="minusValue2" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                                <input id="inputValue2" type="text" class="form-control text-center" value="1">
+                                <button id="plusValue2" class="btn btn-default"><i class="fas fa-plus"></i></button>
+     
+                             </div>
+                             <h5>$ <span id="currentBalance2">59</span></h5>
+                             <img id="secondRemoveIcon" src="images/remove.png" alt="" class="remove-item">
+                          </div>
+                       </div>
+                    </div>
+     
+                    <div class="cart-item">
+                       <div class="row">
+     
+                          <div class="col-md-8">
+                             <h5>Subtotal: </h5>
+                             <h5>Tax:</h5>
+                             <h5>Total:</h5>
+                          </div>
+     
+                          <div class="col-md-4 status">
+                             <h5>$ <span id="subtotal"> 1,278</span></h5>
+                             <h5>$ <span id="tax"> 0</span></h5>
+                             <h5>$ <span id="total"> 1,278</span></h5>
+                          </div>
+                       </div>
+                    </div>
+                    <div class="col-md-12 pt-4 pb-4">
+                       <button type="button" class="btn btn-success check-out">Check Out</button>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </section>
+     
+        <script>
+           //plush sign event handler first
+           function firstPlusItem(plusValue, inputValue) {
+              const plusSign = document.getElementById("plusValue");
+              plusSign.addEventListener("click", function () {
+                 const currentValue = document.getElementById("inputValue").value;
+                 const newValue = parseInt(currentValue) + 1;
+                 document.getElementById("inputValue").value = newValue;
+     
+              })
+           }
+           firstPlusItem(plusValue, inputValue);
+
+           //plush sign event handler second
+           function secondPlusItem(plusValue2, inputValue2) {
+              const plusSign = document.getElementById("plusValue2");
+              plusSign.addEventListener("click", function () {
+                 const currentValue2 = document.getElementById("inputValue2").value;
+                 const newValue = parseInt(currentValue2) + 1;
+                 document.getElementById("inputValue2").value = newValue;
+     
+              })
+           }
+           secondPlusItem(plusValue2, inputValue2);
+
+
+     
+           //minus sign event handler first
+     
+           function firstMinusItem(minusValue, inputValue) {
+              const minusSign = document.getElementById("minusValue");
+              minusSign.addEventListener("click", function () {
+                 const negativeValue = document.getElementById("inputValue").value;
+                 const newValue = parseInt(negativeValue) - 1;
+                 document.getElementById("inputValue").value = newValue;
+                 if (newValue == -1) {
+                    document.getElementById("inputValue").value = 0;
+                 }
+              })
+           }
+           firstMinusItem(minusValue, inputValue);
+
+            //minus sign event handler second
+     
+            function secondMinusItem(minusValue2, inputValue2) {
+              const minusSign = document.getElementById("minusValue2");
+              minusSign.addEventListener("click", function () {
+                 const negativeValue = document.getElementById("inputValue2").value;
+                 const newValue = parseInt(negativeValue) - 1;
+                 document.getElementById("inputValue2").value = newValue;
+                 if (newValue == -1) {
+                    document.getElementById("inputValue2").value = 0;
+                 }
+              })
+           }
+           secondMinusItem(minusValue2, inputValue2);
+     
+     
+           //currentBalance positive value calculation first
+     
+           function productCost(plusValue, currentBalance) {
+              const plusSign = document.getElementById("plusValue");
+              plusSign.addEventListener("click", function () {
+                 const currentCost = document.getElementById("currentBalance").innerText;
+                 const newCost = parseInt(currentCost) + 1219;
+                 document.getElementById("currentBalance").innerText = newCost;
+              })
+           }
+           productCost(plusValue, currentBalance);
+          
+
+           //currentBalance positive value calculation second
+     
+           function productCost2(plusValue2, currentBalance2) {
+              const plusSign = document.getElementById("plusValue2");
+              plusSign.addEventListener("click", function () {
+                 const currentCost = document.getElementById("currentBalance2").innerText;
+                 const newCost = parseInt(currentCost) + 59;
+                 document.getElementById("currentBalance2").innerText = newCost;
+              })
+           }
+           productCost2(plusValue2, currentBalance2);
+
+           //currentBalance negative value calculation first
+     
+           function negativeCost(minusValue, currentBalance) {
+              const minusSign = document.getElementById("minusValue");
+              minusSign.addEventListener("click", function () {
+                 const currentCost = document.getElementById("currentBalance").innerText;
+                 const newCost = parseInt(currentCost) - 1219;
+                 document.getElementById("currentBalance").innerText = newCost;
+                 if (newCost == -1219) {
+                    document.getElementById("currentBalance").innerText = 0;
+     
+                 }
+              })
+           }
+           negativeCost(minusValue, currentBalance);
+
+           //currentBalance negative value calculation second
+     
+           function negativeCost2(minusValue2, currentBalance2) {
+              const minusSign = document.getElementById("minusValue2");
+              minusSign.addEventListener("click", function () {
+                 const currentCost = document.getElementById("currentBalance2").innerText;
+                 const newCost = parseInt(currentCost) - 59;
+                 document.getElementById("currentBalance2").innerText = newCost;
+                 if (newCost == -59) {
+                    document.getElementById("currentBalance2").innerText = 0;
+     
+                 }
+              })
+           }
+           negativeCost2(minusValue2, currentBalance2);
+     
+           //remove display icon1
+            const displayRemove = document.getElementById("removeIcon");
+           displayRemove.addEventListener("click", function () {
+              const cart = document.getElementById("cartRemoved");
+              cart.style.display = "none";
+           })
+          
+            //remove display icon2
+           const display2Remove = document.getElementById("secondRemoveIcon");
+           display2Remove.addEventListener("click", function () {
+              const cart = document.getElementById("secondCartRemoved");
+              cart.style.display = "none";
+           })
+           
+        //total cost calculation
+        
+        
+        </script>
+     
+     </body>
+
+</html>
